@@ -1,0 +1,9 @@
+
+  
+
+  h1 {
+    text-align: center; /* Centra el texto horizontalmente */
+    margin-top: 50vh; /* Mueve el texto hacia abajo en la mitad vertical de la página */
+    transform: translateY(-50%); /* Ajusta la posición vertical para centrarlo */
+  }
+  

@@ -1,0 +1,44 @@
+<div class="container">
+
+
+<form class="form" [formGroup]="usuarioForm" (ngSubmit)="addUsuario()">
+    <p class="title">Regístrate</p>
+    <p class="message">Regístrate ahora y obtén acceso completo a las hubicaciones de todas las gasolineras de la carretera CA4.</p>
+        <label>
+            <input formControlName="username" placeholder="username" type="text" class="input"> 
+            <div class="text-danger"
+                *ngIf="usuarioForm.get('username')?.hasError('required') && usuarioForm.get('username')?.touched">
+                <span>Username es requerido</span>
+            </div>
+        </label>
+            
+    <label>
+        <input formControlName="email" placeholder="Email" type="email" class="input">
+        <div class="text-danger"
+            *ngIf="usuarioForm.get('email')?.hasError('required') && usuarioForm.get('email')?.touched">
+            <span>Email es requerido</span>
+        </div>
+    </label> 
+        
+    <label>
+        <input formControlName="password" placeholder="Password" type="password" class="input">
+        <div class="text-danger"
+            *ngIf="usuarioForm.get('password')?.hasError('required') && usuarioForm.get('password')?.touched">
+            <span>Password es requerido</span>
+        </div>
+    </label>
+    <label>
+        <input formControlName="roles" placeholder="Ingrese su Rol" type="text" class="input">
+        <div class="text-danger"
+            *ngIf="usuarioForm.get('roles')?.hasError('required') && usuarioForm.get('roles')?.touched">
+            <span>El Rol es requerido</span>
+        </div>
+    </label>
+    
+    <button type="submit" [disabled]="usuarioForm.invalid" class="submit">Registrar</button>
+
+    <p class="signin">¿Ya tienes una cuenta? <a routerLink="/">Iniciar sesión</a></p>
+</form>
+
+</div>
+

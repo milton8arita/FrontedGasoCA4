@@ -1,0 +1,45 @@
+
+
+
+<div class="container mt-5">
+    <div class="col-lg-6 offset-lg-3">
+      <div class="card">
+        <div class="card-body text-center">
+          <span class="title">{{ title | uppercase }}</span>
+          <form class="mt-3" [formGroup]="gasolineraForm" (ngSubmit)="addGasolinera()">
+            <div class="mb-3">
+              <input type="text" formControlName="nombre" class="form-control form-control-lg" placeholder="Gasolinera nombre">
+              <div class="text-danger"
+                *ngIf="gasolineraForm.get('nombre')?.hasError('required') && gasolineraForm.get('nombre')?.touched">
+                <span>El nombre es requerido</span>
+              </div>
+            </div>
+            <div class="mb-3">
+                <input type="number" formControlName="latitud" class="form-control form-control-lg" placeholder="latitud">
+                <div class="text-danger" *ngIf="gasolineraForm.get('latitud')?.hasError('required') && gasolineraForm.get('latitud')?.touched">
+                  <span>La latitud es requerida</span>
+                </div>
+              </div>
+              <div class="mb-3">
+                <input type="number" formControlName="longitud" class="form-control form-control-lg" placeholder="longitud">
+                <div class="text-danger" *ngIf="gasolineraForm.get('longitud')?.hasError('required') && gasolineraForm.get('longitud')?.touched">
+                  <span>La longitud es requerida</span>
+                </div>
+              </div>
+  
+            
+  
+      
+            <div class="mb-3">
+              <button routerLink="/lista-gasolinera" class="btn btn-outline-primary btn-lg me-2">
+                <i class="fas fa-arrow-left me-1"></i> Regresar
+            </button>
+              <button type="submit" [disabled]="gasolineraForm.invalid"
+                class="btn btn-primary btn-lg" routerLink="/lista-gasolinera">Guardar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  

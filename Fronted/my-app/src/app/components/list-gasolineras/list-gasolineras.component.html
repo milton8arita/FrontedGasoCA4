@@ -1,0 +1,76 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand">GASOCA4</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/administradores">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/lista-gasolinera">Administrar Gasolineras</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/lista-productos">Administrar Productos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/lista-usuarios">Administrar Usuarios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/lista-eventos">Administrar Eventos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/lista-incidentes">Administrar Incidentes</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+        <div class="card">
+          <div class="card-body text-center">
+            <span class="title">Gasolinera List</span>
+            
+            <button class="btn btn-success float-end" routerLink="/crear-gasolinera" style="background-color: rgb(41, 80, 65);">Crear Gasolinera</button>
+            <table *ngIf="listGasolineras.length > 0" class="table table-striped table-responsive mt-5">
+              <thead>
+                <tr>
+                  <th scope="col">Nombre de Gasolinera </th>
+                  <th scope="col">latitud</th>
+                  <th scope="col">longitud</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <!--ng form es de javascritp listGasolinera la traemos de list gaslineas-->
+                <tr *ngFor="let gasolinera of listGasolineras">   
+                  <td>{{ gasolinera.nombre }}</td>
+                  <td>{{ gasolinera.ubicacion.latitud }}</td>
+                  <td>{{ gasolinera.ubicacion.longitud}}</td>
+                  <td>
+                    <button class="btn btn-primary btn-sm" [routerLink]="['/edit-gasolinera', gasolinera._id]">
+                      <i class="fas fa-edit"></i> Editar
+                    </button>
+                    <button class="btn btn-danger btn-sm" (click)="deleteGasolinera(gasolinera._id)">
+                      <i class="fas fa-trash"></i> Eliminar
+                    </button>
+                  </td>
+                  
+                </tr>
+              </tbody>
+            </table>
+            <h5 class="no-available" *ngIf="listGasolineras.length == 0">No hay Gasolineras Afiliadas</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

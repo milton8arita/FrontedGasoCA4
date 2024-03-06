@@ -1,0 +1,32 @@
+<div class="container">
+    <form [formGroup]="loginForm" class="form-control" (ngSubmit)="login()">
+      <div class="log">
+        <p class="title">Login</p>
+        <div class="img">
+          <img src="../../assets/logo2.png" alt="image" width="120">
+        </div>
+      </div>
+      <div class="input-field">
+        <input formControlName="email" required class="input" type="email" id="email" />
+        <label class="label" for="email">Ingresa tu correo</label>
+      </div>
+  
+      <div class="input-field">
+        <input formControlName="password" required class="input" type="password" id="password" />
+        <label class="label" for="password">Ingresa tu Contraseña</label>
+      </div>
+  
+      <button type="submit" [disabled]="loginForm.invalid" class="submit-btn" routerLink="/inicio">Ingresar</button>
+
+      <button class="cta" routerLink="/registrarse">
+        <span>Registrate</span>
+        <svg width="15px" height="10px" viewBox="0 0 13 10">
+          <path d="M1,5 L11,5"></path>
+          <polyline points="8 1 12 5 8 9"></polyline>
+        </svg>
+      </button>
+
+
+    </form>
+  </div>
+  
